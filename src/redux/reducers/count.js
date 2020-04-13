@@ -1,11 +1,18 @@
-export default (state = null, action) => {
-  console.log('state: ', state);
+export default (state = {
+  count: 11
+}, action) => {
   const { type } = action
   if (type === 'add') {
-    return state += 1
+    return {
+      ...state,
+      count: state.count + 1
+    }
   }
   if (type === 'decrease') {
-    return state -= 1
+    return {
+      ...state,
+      count: state.count - 1
+    }
   }
   return state
 }
