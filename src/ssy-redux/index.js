@@ -44,7 +44,7 @@ const createStore = (reducer, middleware, defaultState) => {
     subscribe,
   }
   dispatch({
-    type: 'REDUX_DEFAULT'
+    type: 'SSY_REDUX_DEFAULT'
   })
   return store
 }
