@@ -7,7 +7,6 @@ import { store } from './redux/index'
 
 const render = () => {
   const state = store.getState()
-  console.log('state: ', state);
   ReactDOM.render(
     <React.StrictMode>
       <App store={state}/>
@@ -17,6 +16,9 @@ const render = () => {
 }
 
 store.subscribe(render)
+store.subscribe(() => {
+  console.log('订阅者发布者')
+})
 
 render()
 

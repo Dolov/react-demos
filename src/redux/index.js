@@ -1,22 +1,13 @@
 
 import { createStore, combineReducers } from 'redux'
+import count from './reducers/count'
 
 
-export const store = createStore((state = {
-  count: 0,
-}, {
-  type,
-}) => {
-  if (type === 'add') {
-    const newState = Object.assign({}, state, {count: state.count + 1})
-    return newState
-  }
-  if (type === 'decrease') {
-    const newState = Object.assign({}, state, {count: state.count - 1})
-    return newState
-  }
-  return state
-}, {
+const reducer = combineReducers({
+  count,
+})
+
+export const store = createStore(reducer, {
   count: 10,
 })
 
