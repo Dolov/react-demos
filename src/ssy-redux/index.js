@@ -26,8 +26,22 @@ const createStore = (reducer, middleware, defaultState) => {
     return state
   }
   const dispatch = action => {
-    const newState = reducer(state, action)
-    state = newState
+    if (typeof reducer === 'function') {
+      const newState = reducer(state, action)
+      state = newState
+    }
+
+    if (typeof reducer === 'object') {
+      const keys = Object.keys(reducer)
+      keys.forEach(key => {
+        const itemState = reducer[key](state[key], action)
+        state = {
+          ...state,
+          [key]: itemState,
+        }
+      })
+    }
+    
     if (subscribers.length > 0) {
       subscribers.forEach(subscriber => {
         const context = subscriber()
@@ -49,8 +63,8 @@ const createStore = (reducer, middleware, defaultState) => {
   return store
 }
 
-const combineReducers = () => {
-
+const combineReducers = reducers => {
+  return reducers
 }
 
 export {
