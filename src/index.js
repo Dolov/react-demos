@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { store } from './redux/index'
+import { store } from './model/index'
 
 const render = () => {
   const state = store.getState()

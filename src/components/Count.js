@@ -1,8 +1,7 @@
 import React from 'react'
-import { store } from '../redux/index'
+import { store } from '../model/index'
 console.log('store: ', store);
 
-console.log(typeof Symbol.observable)
 
 export default class Count extends React.PureComponent {
 
