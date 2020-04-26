@@ -1,5 +1,4 @@
 export default (state = null, action) => {
-  console.log(state, 'ss')
   const { type } = action
   if (type === 'add') {
     return state + 1

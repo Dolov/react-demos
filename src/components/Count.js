@@ -1,6 +1,5 @@
 import React from 'react'
 import { store } from '../model/index'
-console.log('store: ', store);
 
 
 export default class Count extends React.PureComponent {

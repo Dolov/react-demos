@@ -23,6 +23,7 @@
     "src"
   ],
   "exclude": [
-    "src/redux-src"
+    "src/redux-src",
+    "src/redux-src/types",
   ]
 }

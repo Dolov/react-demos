@@ -102,7 +102,6 @@ export type Observable<T> = {
    * emission of values from the observable.
    */
   subscribe: (observer: Observer<T>) => { unsubscribe: Unsubscribe }
-  [Symbol.observable](): Observable<T>
 }
 
 /**
@@ -209,7 +208,6 @@ export interface Store<
    * For more information, see the observable proposal:
    * https://github.com/tc39/proposal-observable
    */
-  [Symbol.observable](): Observable<S>
 }
 
 /**
