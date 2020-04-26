@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class ErrorBoundary extends React.Component {
+ class ErrorBoundary extends React.Component {
   
   state = {
     error: false,
@@ -21,4 +21,12 @@ export default class ErrorBoundary extends React.Component {
     if (error) return 'sorry, something went error'
     return this.props.children
   }
+}
+
+export default (Boundary = ErrorBoundary) => InnerComponent => {
+  return props => (
+    <Boundary>
+      <InnerComponent {...props} ref={props.forwardedRef} />
+    </Boundary>
+  )
 }

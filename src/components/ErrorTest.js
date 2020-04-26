@@ -1,6 +1,8 @@
 import React from 'react'
+import errorBoundaryDecorator from './ErrorBoundary'
 
-export default class ErrorTest extends React.Component {
+
+class ErrorTest extends React.Component {
 
   state = {
     count: 0,
@@ -11,9 +13,9 @@ export default class ErrorTest extends React.Component {
     // console.log(this.state.userInfo.name)
 
     // 异步无法捕获
-    setTimeout(() => {
-      console.log(this.state.userInfo.name)
-    }, 1000)
+    // setTimeout(() => {
+    //   console.log(this.state.userInfo.name)
+    // }, 1000)
   }
 
   renderError = () => {
@@ -38,3 +40,5 @@ export default class ErrorTest extends React.Component {
     )
   }
 }
+
+export default errorBoundaryDecorator()(ErrorTest)
